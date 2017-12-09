@@ -6,6 +6,13 @@
 
 package vista;
 
+import controlador.GestionDato;
+import java.util.ArrayList;
+import java.util.List;
+import modelo.Curso;
+import modelo.Docente;
+import modelo.Materia;
+
 /**
  *
  * @author Administrador
@@ -17,6 +24,14 @@ public class Principal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        List<Curso> cursoList = new ArrayList();
+        List<Docente> docenteList = new ArrayList();
+        List<Materia> materiaList = new ArrayList();
+        GestionDato gd = new GestionDato(docenteList, materiaList, cursoList);
+        
+        VentanaPrincipal v = new VentanaPrincipal("Menu Principal",gd);
+        v.setVisible(true);
     }
     
 }
