@@ -63,4 +63,28 @@ public class GestionDato {
     public void setCursoList(List<Curso> cursoList) {
         this.cursoList = cursoList;
     }
+    
+    public Docente buscarDocente(String txt) {      
+        Docente retorno = null;
+        int i = 0;
+        for (Docente d : this.docenteList) {
+            if (d.getNombre().equals(txt)) {             
+                i++;
+                return d;
+            }
+        }
+        return retorno;
+    }
+    
+    public Materia buscarMateria(String txt) {      
+        Materia retorno = null;
+        int i = 0;
+        for (Materia m : this.materiaList) {
+            if (m.getNombre().equals(txt)) {             
+                i++;
+                return m;
+            }
+        }
+        return retorno;
+    }
 }

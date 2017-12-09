@@ -32,7 +32,7 @@ public class EventoVentanaDocente implements ActionListener {
             String fn = this.vDocente.getTxtList().get(3).getText();
             String titulo = this.vDocente.getTxtList().get(4).getText();
 
-            this.vDocente.getGd().addDocente(new Docente(n, a, c, fn, titulo));
+            this.vDocente.getGd().addDocente(new Docente(titulo,n, a, c, fn));
             this.vDocente.getModeloTabla().setDataVector(cargaDocente(this.vDocente.getGd().getDocenteList().size(), 6), this.vDocente.getEncabezado());
 
             this.vDocente.getTxtList().get(0).setText("");

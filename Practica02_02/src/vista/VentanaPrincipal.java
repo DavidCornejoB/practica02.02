@@ -48,16 +48,15 @@ public class VentanaPrincipal extends JFrame{
         this.barraMenu = new JMenuBar();
         
         this.menuList = new ArrayList();
-        this.menuList.add(new JMenu("Curso"));
         this.menuList.add(new JMenu("Docente"));
         this.menuList.add(new JMenu("Materia"));
+        this.menuList.add(new JMenu("Curso"));
         
         this.itemMenuList = new ArrayList();
-        this.itemMenuList.add(new JMenuItem("Nuevo Curso"));
         this.itemMenuList.add(new JMenuItem("Nuevo Docente"));
         this.itemMenuList.add(new JMenuItem("Nueva Materia"));
-
-        
+        this.itemMenuList.add(new JMenuItem("Nuevo Curso"));
+ 
         this.add(this.escritorio);
         this.setJMenuBar(this.barraMenu);
         

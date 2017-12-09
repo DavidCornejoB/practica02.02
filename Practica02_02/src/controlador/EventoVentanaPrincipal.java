@@ -28,17 +28,17 @@ public class EventoVentanaPrincipal implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if(e.getSource().equals(this.vPrincipal.getItemMenuList().get(0))){
+        if(e.getSource().equals(this.vPrincipal.getItemMenuList().get(2))){
             this.vPrincipal.setvCurso(new VentanaCurso("Nuevo Curso",true, true,true,true,this.vPrincipal.getGd()));
             this.vPrincipal.getEscritorio().add(this.vPrincipal.getvCurso());
         }
         
-        if(e.getSource().equals(this.vPrincipal.getItemMenuList().get(1))){
+        if(e.getSource().equals(this.vPrincipal.getItemMenuList().get(0))){
             this.vPrincipal.setvDocente(new VentanaDocente("Nuevo Docente",true, true,true,true, this.vPrincipal.getGd()));
             this.vPrincipal.getEscritorio().add(this.vPrincipal.getvDocente());
         }
         
-        if(e.getSource().equals(this.vPrincipal.getItemMenuList().get(2))){
+        if(e.getSource().equals(this.vPrincipal.getItemMenuList().get(1))){
             this.vPrincipal.setvMateria(new VentanaMateria("Nueva Materia",true, true,true,true, this.vPrincipal.getGd()));
             this.vPrincipal.getEscritorio().add(this.vPrincipal.getvMateria());
         }
