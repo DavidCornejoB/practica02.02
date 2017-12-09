@@ -17,6 +17,7 @@ import modelo.Materia;
  */
 
 public class GestionDato {
+    
     private List<Docente> docenteList;
     private List<Materia> materiaList;
     private List<Curso> cursoList;
@@ -26,6 +27,18 @@ public class GestionDato {
         this.materiaList = materiaList;
         this.cursoList = cursoList;
     }
+    
+    public boolean addDocente(Docente d){
+        return this.addDocente(d);
+    }
+    
+    public boolean addMateria(Materia m){
+        return this.addMateria(m);
+    }
+    
+    public boolean addCurso(Curso c){
+        return this.addCurso(c);
+    } 
 
     public List<Docente> getDocenteList() {
         return docenteList;
@@ -50,16 +63,4 @@ public class GestionDato {
     public void setCursoList(List<Curso> cursoList) {
         this.cursoList = cursoList;
     }
-    
-    public boolean addDocente(Docente d){
-        return this.addDocente(d);
-    }
-    
-    public boolean addMateria(Materia m){
-        return this.addMateria(m);
-    }
-    
-    public boolean addCurso(Curso c){
-        return this.addCurso(c);
-    } 
 }

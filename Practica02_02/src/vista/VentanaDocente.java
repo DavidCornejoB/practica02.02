@@ -49,7 +49,7 @@ public class VentanaDocente extends JInternalFrame{
     public void iniciaComponentes() {
         
         this.panel = new JPanel(new GridLayout(3,1));
-        JPanel panelCampos = new JPanel(new GridLayout(4,2));
+        JPanel panelCampos = new JPanel(new GridLayout(5,2));
         
         this.lblList = new ArrayList();
         this.lblList.add(new JLabel("Nombre:"));
@@ -67,7 +67,7 @@ public class VentanaDocente extends JInternalFrame{
         
         this.bGuardar = new JButton("Guardar");
         this.bGuardar.addActionListener(new EventoVentanaDocente(this));
-        this.encabezado = new Object[5];
+        this.encabezado = new Object[6];
         this.encabezado[0]="N°";
         this.encabezado[1]="Nombre";
         this.encabezado[2]="Apellido";
