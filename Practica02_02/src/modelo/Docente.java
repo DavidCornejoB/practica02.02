@@ -11,10 +11,11 @@ package modelo;
  * @author Administrador
  */
 public class Docente extends Persona {
+    
      private String titulo;
 
-    public Docente(String titulo, String nombre, String cedula, String fechaNac) {
-        super(nombre, cedula, fechaNac);
+    public Docente(String titulo, String nombre, String apellido, String cedula, String fechaNac) {
+        super(nombre, apellido, cedula, fechaNac);
         this.titulo = titulo;
     }
 

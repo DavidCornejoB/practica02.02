@@ -13,11 +13,13 @@ package modelo;
 public class Persona {
 
     private String nombre;
+    private String apellido;
     private String cedula;
     private String fechaNac;
 
-    public Persona(String nombre, String cedula, String fechaNac) {
+    public Persona(String nombre, String apellido, String cedula, String fechaNac) {
         this.nombre = nombre;
+        this.apellido = apellido;
         this.cedula = cedula;
         this.fechaNac = fechaNac;
     }
@@ -28,6 +30,14 @@ public class Persona {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getCedula() {
@@ -48,7 +58,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", cedula=" + cedula + ", fechaNac=" + fechaNac + '}';
+        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", fechaNac=" + fechaNac + '}';
     }
 
 }
