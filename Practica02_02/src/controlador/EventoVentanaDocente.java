@@ -53,7 +53,7 @@ public class EventoVentanaDocente implements ActionListener {
             retorno[i][2]= d.getApellido();
             retorno[i][3]= d.getCedula();
             retorno[i][4]= d.getFechaNac();
-            retorno[i][4]= d.getTitulo();
+            retorno[i][5]= d.getTitulo();
             i++;
         }
         return retorno;

@@ -29,15 +29,15 @@ public class GestionDato {
     }
     
     public boolean addDocente(Docente d){
-        return this.addDocente(d);
+        return this.docenteList.add(d);
     }
     
     public boolean addMateria(Materia m){
-        return this.addMateria(m);
+        return this.materiaList.add(m);
     }
     
     public boolean addCurso(Curso c){
-        return this.addCurso(c);
+        return this.cursoList.add(c);
     } 
 
     public List<Docente> getDocenteList() {
