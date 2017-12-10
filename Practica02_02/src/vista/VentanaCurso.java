@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package vista;
 
 import controlador.EventoVentanaCurso;
@@ -51,7 +50,7 @@ public class VentanaCurso extends JInternalFrame {
     }
 
     public void iniciaComponentes() {
-         this.panel = new JPanel(new GridLayout(3,2 ));
+        this.panel = new JPanel(new GridLayout(3, 2));
         JPanel panelCampos = new JPanel(new GridLayout(4, 2));
 
         this.lblList = new ArrayList();
@@ -64,16 +63,17 @@ public class VentanaCurso extends JInternalFrame {
         this.txtList.add(new JTextField(15));
 
         this.bGuardar = new JButton("Guardar");
-        
+
         this.comboBox = new JComboBox(this.CargaCombo());
 
         this.bGuardar.addActionListener(new EventoVentanaCurso(this));
-        this.encabezado = new Object[3];
-        this.encabezado[0] = "Grupo";
-        this.encabezado[1] = "Numero Alumnos";
-        this.encabezado[2] = "Materia";
+        this.encabezado = new Object[4];
+        this.encabezado[0] = "N°";
+        this.encabezado[1] = "Grupo";
+        this.encabezado[2] = "Numero Alumnos";
+        this.encabezado[3] = "Materia";
 
-        this.datos = this.cargaCurso(this.gd.getCursoList().size(),3);
+        this.datos = this.cargaCurso(this.gd.getCursoList().size(), 4);
 
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);
         this.tabla = new JTable(this.modeloTabla);
@@ -85,22 +85,23 @@ public class VentanaCurso extends JInternalFrame {
         panelCampos.add(this.txtList.get(1));
         panelCampos.add(this.lblList.get(2));
         panelCampos.add(this.comboBox);
-        
+
         this.panel.add(panelCampos);
         this.panel.add(this.bGuardar);
         this.panel.add(this.scroll);
         this.add(this.panel);
 
     }
-    
+
     public Object[][] cargaCurso(int f, int c) {
         Object[][] retorno = new Object[f][c];
         int i = 0;
         for (Curso cu : this.gd.getCursoList()) {
-            
-            retorno[i][0] = cu.getParalelo();
-            retorno[i][1] = cu.getNumAlumnos();
-            retorno[i][1]=  cu.getMateria().getNombre();
+
+            retorno[i][0] = i + 1;
+            retorno[i][1] = cu.getParalelo();
+            retorno[i][2] = cu.getNumAlumnos();
+            retorno[i][3] = cu.getMateria().getNombre();
             i++;
         }
         return retorno;
@@ -109,9 +110,9 @@ public class VentanaCurso extends JInternalFrame {
     private Object[] CargaCombo() {
         String[] retorno = new String[this.gd.getMateriaList().size()];
         int i = 0;
-        for (Materia  mat : this.gd.getMateriaList()) {
+        for (Materia mat : this.gd.getMateriaList()) {
             retorno[i] = mat.getNombre();
-            
+
             i++;
         }
         return retorno;
@@ -205,6 +206,4 @@ public class VentanaCurso extends JInternalFrame {
         this.gd = gd;
     }
 
-    
-    
 }
