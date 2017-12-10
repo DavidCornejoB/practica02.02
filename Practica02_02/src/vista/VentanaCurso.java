@@ -71,7 +71,7 @@ public class VentanaCurso extends JInternalFrame {
         this.encabezado = new Object[3];
         this.encabezado[0] = "Paralelo";
         this.encabezado[1] = "Numero Alumnos";
-        this.encabezado[1] = "Materia";
+        this.encabezado[2] = "Materia";
 
         this.datos = this.cargaCurso(this.gd.getCursoList().size(),3);
 
