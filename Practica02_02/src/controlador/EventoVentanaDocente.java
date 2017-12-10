@@ -49,27 +49,32 @@ public class EventoVentanaDocente implements ActionListener {
                     JOptionPane.showMessageDialog(vDocente, "El parámetro Titulo está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
                 } else {
 
-                    int nCedula = Integer.parseInt(cedula);
+                    if (cedula.length() != 10) {
+                        JOptionPane.showMessageDialog(vDocente, "La cedula debe tener 10 dígitos", "Error Cédula", JOptionPane.ERROR_MESSAGE);
+                    } else {
 
-                    int cont = 0;
-                    boolean cent = true;
-                    for (Docente d : this.vDocente.getGd().getDocenteList()) {
-                        //DOS PERSONAS NO PUEDEN TENER LA MISMA CEDULA
-                        if (cedula.compareTo(Integer.toString(this.vDocente.getGd().getDocenteList().get(cont).getCedula())) == 0) {
-                            JOptionPane.showMessageDialog(vDocente, "Ya se encuentra esta persona(cedula: " + cedula + ") en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
-                            cent = false;
-                            break;
-                        } else {
-                            cent = true;
+                        int nCedula = Integer.parseInt(cedula);
+
+                        int cont = 0;
+                        boolean cent = true;
+                        for (Docente d : this.vDocente.getGd().getDocenteList()) {
+                            //DOS PERSONAS NO PUEDEN TENER LA MISMA CEDULA
+                            if (cedula.compareTo(Integer.toString(this.vDocente.getGd().getDocenteList().get(cont).getCedula())) == 0) {
+                                JOptionPane.showMessageDialog(vDocente, "Ya se encuentra esta persona(cedula: " + cedula + ") en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
+                                cent = false;
+                                break;
+                            } else {
+                                cent = true;
+                            }
+                            cont++;
                         }
-                        cont++;
-                    }
 
-                    if (cent == true) {
+                        if (cent == true) {
 
-                        this.vDocente.getGd().addDocente(new Docente(titulo, n, a, nCedula, fn));
-                        this.vDocente.getModeloTabla().setDataVector(cargaDocente(this.vDocente.getGd().getDocenteList().size(), 6), this.vDocente.getEncabezado());
+                            this.vDocente.getGd().addDocente(new Docente(titulo, n, a, nCedula, fn));
+                            this.vDocente.getModeloTabla().setDataVector(cargaDocente(this.vDocente.getGd().getDocenteList().size(), 6), this.vDocente.getEncabezado());
 
+                        }
                     }
                 }
 
