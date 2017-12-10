@@ -51,11 +51,14 @@ public class VentanaPrincipal extends JFrame{
         this.menuList.add(new JMenu("Docente"));
         this.menuList.add(new JMenu("Materia"));
         this.menuList.add(new JMenu("Curso"));
+        this.menuList.add(new JMenu("Archivo"));
         
         this.itemMenuList = new ArrayList();
         this.itemMenuList.add(new JMenuItem("Nuevo Docente"));
         this.itemMenuList.add(new JMenuItem("Nueva Materia"));
         this.itemMenuList.add(new JMenuItem("Nuevo Curso"));
+        this.itemMenuList.add(new JMenuItem("Crear Carpeta"));
+        this.itemMenuList.add(new JMenuItem("Crear Documento"));
  
         this.add(this.escritorio);
         this.setJMenuBar(this.barraMenu);
@@ -63,10 +66,13 @@ public class VentanaPrincipal extends JFrame{
         this.barraMenu.add(this.menuList.get(0));
         this.barraMenu.add(this.menuList.get(1));
         this.barraMenu.add(this.menuList.get(2));
+        this.barraMenu.add(this.menuList.get(3));
         
         this.menuList.get(0).add(this.itemMenuList.get(0));
         this.menuList.get(1).add(this.itemMenuList.get(1));
         this.menuList.get(2).add(this.itemMenuList.get(2));
+        this.menuList.get(3).add(this.itemMenuList.get(3));
+        this.menuList.get(3).add(this.itemMenuList.get(4));
         
         this.itemMenuList.get(0).addActionListener(new EventoVentanaPrincipal(this));
         this.itemMenuList.get(1).addActionListener(new EventoVentanaPrincipal(this));
