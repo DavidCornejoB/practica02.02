@@ -12,12 +12,12 @@ package modelo;
  */
 public class Curso {
      
-    private String paralelo;
+    private String grupo;
     private int numAlumnos;
     private Materia materia;
 
     public Curso(String paralelo, int numAlumnos, Materia materia) {
-        this.paralelo = paralelo;
+        this.grupo = paralelo;
         this.numAlumnos = numAlumnos;
         this.materia = materia;
     }
@@ -33,11 +33,11 @@ public class Curso {
     
 
     public String getParalelo() {
-        return paralelo;
+        return grupo;
     }
 
     public void setParalelo(String paralelo) {
-        this.paralelo = paralelo;
+        this.grupo = paralelo;
     }
 
     public int getNumAlumnos() {
@@ -50,7 +50,7 @@ public class Curso {
 
     @Override
     public String toString() {
-        return "Curso{" + "paralelo=" + paralelo + ", numAlumnos=" + numAlumnos + ", materia=" + materia + '}';
+        return "Curso{" + "paralelo=" + grupo + ", numAlumnos=" + numAlumnos + ", materia=" + materia + '}';
     }
 
     

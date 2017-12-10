@@ -55,7 +55,7 @@ public class VentanaCurso extends JInternalFrame {
         JPanel panelCampos = new JPanel(new GridLayout(4, 2));
 
         this.lblList = new ArrayList();
-        this.lblList.add(new JLabel("Paralelo :"));
+        this.lblList.add(new JLabel("Grupo:"));
         this.lblList.add(new JLabel("Numero Alumnos:"));
         this.lblList.add(new JLabel("Materia:"));
 
@@ -69,9 +69,9 @@ public class VentanaCurso extends JInternalFrame {
 
         this.bGuardar.addActionListener(new EventoVentanaCurso(this));
         this.encabezado = new Object[3];
-        this.encabezado[0] = "Paralelo";
+        this.encabezado[0] = "Grupo";
         this.encabezado[1] = "Numero Alumnos";
-        this.encabezado[1] = "Materia";
+        this.encabezado[2] = "Materia";
 
         this.datos = this.cargaCurso(this.gd.getCursoList().size(),3);
 

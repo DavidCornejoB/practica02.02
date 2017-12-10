@@ -27,7 +27,7 @@ public class EventoVentanaCurso implements ActionListener {
             this.vC.getModeloTabla().setDataVector(cargaCurso(this.vC.getGd().getMateriaList().size(), 3), this.vC.getEncabezado());
 
             this.vC.getTxtList().get(0).setText("");
-            this.vC.getTxtList().get(0).setText("");
+            this.vC.getTxtList().get(1).setText("");
 
         }
     }
