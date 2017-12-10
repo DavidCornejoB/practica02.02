@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import modelo.Curso;
 import modelo.Materia;
 import vista.VentanaCurso;
@@ -17,17 +18,35 @@ public class EventoVentanaCurso implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(this.vC.getbGuardar())) {
-            String p = this.vC.getTxtList().get(0).getText();
-            int n = Integer.parseInt(this.vC.getTxtList().get(1).getText());
-            String m = this.vC.getComboBox().getSelectedItem().toString();
 
-            Materia materia = this.vC.getGd().buscarMateria(m);
-            this.vC.getGd().addCurso(new Curso(p, n, materia));
+            try {
+                String p = this.vC.getTxtList().get(0).getText();
+                String n = this.vC.getTxtList().get(1).getText();
+                String m = this.vC.getComboBox().getSelectedItem().toString();
+                
+                if (p.isEmpty() && n.isEmpty()) {
+                    JOptionPane.showMessageDialog(vC, "Los parámetros están vacíos", "EmptyParameter", JOptionPane.NO_OPTION);
+                } else if (p.isEmpty()) {
+                    JOptionPane.showMessageDialog(vC, "El parámetro Paralelo está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
+                } else if (n.isEmpty()) {
+                    JOptionPane.showMessageDialog(vC, "El parámetro Numero Alumnos está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
+                } else {
 
-            this.vC.getModeloTabla().setDataVector(cargaCurso(this.vC.getGd().getMateriaList().size(), 3), this.vC.getEncabezado());
+                    int numEst = Integer.parseInt(n);
+                    Materia materia = this.vC.getGd().buscarMateria(m);
+                    this.vC.getGd().addCurso(new Curso(p, numEst, materia));
 
-            this.vC.getTxtList().get(0).setText("");
-            this.vC.getTxtList().get(1).setText("");
+                    this.vC.getModeloTabla().setDataVector(cargaCurso(this.vC.getGd().getMateriaList().size(), 3), this.vC.getEncabezado());
+
+                    
+                }
+
+            } catch (NumberFormatException error) {
+
+                JOptionPane.showMessageDialog(vC, "Ingresar sólo números en Numero Estudiantes", "NumberFormatException", JOptionPane.ERROR_MESSAGE);
+                this.vC.getTxtList().get(0).setText("");
+                this.vC.getTxtList().get(1).setText("");
+            }
 
         }
     }
