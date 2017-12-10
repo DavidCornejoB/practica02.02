@@ -28,10 +28,14 @@ public class Principal {
         List<Curso> cursoList = new ArrayList();
         List<Docente> docenteList = new ArrayList();
         List<Materia> materiaList = new ArrayList();
+        
+        //docenteList.add(new Docente("juan","hkljh","jjjj",01023934123,"mmmm"));
         GestionDato gd = new GestionDato(docenteList, materiaList, cursoList);
         
         VentanaPrincipal v = new VentanaPrincipal("Menu Principal",gd);
         v.setVisible(true);
+        
+        
     }
     
 }

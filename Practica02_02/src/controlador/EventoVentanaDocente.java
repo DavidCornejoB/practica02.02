@@ -72,6 +72,7 @@ public class EventoVentanaDocente implements ActionListener {
                         if (cent == true) {
 
                             this.vDocente.getGd().addDocente(new Docente(titulo, n, a, nCedula, fn));
+                            this.vDocente.getGd().persistirArchivoDocente(this.vDocente.getGd().getDocenteList());
                             this.vDocente.getModeloTabla().setDataVector(cargaDocente(this.vDocente.getGd().getDocenteList().size(), 6), this.vDocente.getEncabezado());
 
                         }

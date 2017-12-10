@@ -19,6 +19,8 @@ public class Docente extends Persona {
         this.titulo = titulo;
     }
 
+    
+
     public String getTitulo() {
         return titulo;
     }
