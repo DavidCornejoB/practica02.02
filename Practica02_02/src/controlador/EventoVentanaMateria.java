@@ -8,36 +8,40 @@ import modelo.Materia;
 import vista.VentanaMateria;
 
 public class EventoVentanaMateria implements ActionListener {
-    private VentanaMateria vM;
+    private VentanaMateria vMateria;
 
-    public EventoVentanaMateria(VentanaMateria vM) {
-        this.vM = vM;
+    public EventoVentanaMateria(VentanaMateria vMateria) {
+        this.vMateria = vMateria;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(this.vM.getbGuardar())) {
-            String n = this.vM.getTxtList().get(0).getText();
-            String d= this.vM.getComboBox().getSelectedItem().toString();
-             
-            Docente doc= this.vM.getGd().buscarDocente(d);
-            this.vM.getGd().addMateria(new Materia(n,doc));
+            if(e.getSource().equals(this.vMateria.getbGuardar())){
+                
+            String n = this.vMateria.getTxtList().get(0).getText();
+            int c = this.vMateria.getComboBox().getSelectedIndex();
             
-            this.vM.getModeloTabla().setDataVector(cargaMateria(this.vM.getGd().getMateriaList().size(),2), this.vM.getEncabezado());
+            this.vMateria.getGd().addMateria(new Materia(n,this.vMateria.getGd().getDocenteList().get(c)));
+            this.vMateria.getModeloTabla().setDataVector(this.cargaMateria(this.vMateria.getGd().getMateriaList().size(), 3), this.vMateria.getEncabezado());
             
-             this.vM.getTxtList().get(0).setText("");
-        }    
-    }
-    public Object[][] cargaMateria(int f, int c){
-        Object [][] retorno = new Object [f][c];
+            this.vMateria.getComboBox().setSelectedItem(-1);
+            this.vMateria.getTxtList().get(0).setText("");
+            
+        }
+  
+    }   
+
+    private Object[][] cargaMateria(int f, int c) {
+        
+        Object [][]retorno= new Object[f][c];
         int i = 0;
-        for(Materia ma: this.vM.getGd().getMateriaList()){
-            retorno[i][0]= ma.getNombre();
-            retorno[i][1]= ma.getDocente().getNombre();
+        for(Materia m: this.vMateria.getGd().getMateriaList()){
+            retorno[i][0]= i+1;
+            retorno[i][1]= m.getNombre();
+            retorno[i][2]= m.getDocente().getNombre() + " " + m.getDocente().getApellido();
             i++;
         }
         return retorno;
+        
     }
-    
-    
 }

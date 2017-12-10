@@ -65,11 +65,12 @@ public class VentanaMateria extends JInternalFrame {
         this.comboBox = new JComboBox(this.CargaCombo());
 
         this.bGuardar.addActionListener(new EventoVentanaMateria(this));
-        this.encabezado = new Object[2];
-        this.encabezado[0] = "Materia";
-        this.encabezado[1] = "Docente";
+        this.encabezado = new Object[3];
+        this.encabezado[0] = "N°";
+        this.encabezado[1] = "Materia";
+        this.encabezado[2] = "Docente";
 
-        this.datos = this.cargaMateria(this.gd.getMateriaList().size(),2);
+        this.datos = this.cargaMateria(this.gd.getMateriaList().size(),3);
 
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);
         this.tabla = new JTable(this.modeloTabla);
@@ -91,8 +92,9 @@ public class VentanaMateria extends JInternalFrame {
         int i = 0;
         for (Materia m : this.gd.getMateriaList()) {
             
-            retorno[i][0] = m.getNombre();
-            retorno[i][1] = m.getDocente().getNombre()+" "+m.getDocente().getApellido();
+            retorno[i][0] = i+1;
+            retorno[i][1] = m.getNombre();
+            retorno[i][2] = m.getDocente().getNombre()+" "+m.getDocente().getApellido();
             
             i++;
         }
