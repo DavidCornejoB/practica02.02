@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import vista.VentanaCrearCarpeta;
 import vista.VentanaCrearDirectorio;
 import vista.VentanaCurso;
@@ -45,10 +46,12 @@ public class EventoVentanaPrincipal implements ActionListener {
         }
 
         if (e.getSource().equals(this.vPrincipal.getItemMenuList().get(3))) {
+            JOptionPane.showMessageDialog(vPrincipal, "Espacio para crear el directorio en donde se creará el archivo", "Info", JOptionPane.INFORMATION_MESSAGE);
             this.vPrincipal.setvCrearDirectorio(new VentanaCrearDirectorio("CrearDirectorio", true, true, true, true));
             this.vPrincipal.getEscritorio().add(this.vPrincipal.getvCrearDirectorio());
         }
         if (e.getSource().equals(this.vPrincipal.getItemMenuList().get(4))) {
+            JOptionPane.showMessageDialog(vPrincipal, "Espacio para crear el archivo donde irán los datos", "Info", JOptionPane.INFORMATION_MESSAGE);
             this.vPrincipal.setvCrearCarpeta(new VentanaCrearCarpeta("Carpeta - Archivo", true, true, true, true));
             this.vPrincipal.getEscritorio().add(this.vPrincipal.getvCrearCarpeta());
         }

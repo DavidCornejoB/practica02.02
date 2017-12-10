@@ -28,7 +28,7 @@ public class VentanaCrearDirectorio extends JInternalFrame {
 
     public VentanaCrearDirectorio(String title, boolean resizable, boolean closable, boolean maximizable, boolean iconifiable) {
         super(title, resizable, closable, maximizable, iconifiable);
-        this.setSize(440, 160);
+        this.setSize(380, 120);
         this.setLocation(100, 50);
         this.setVisible(true);
         this.initComponents();
@@ -40,13 +40,13 @@ public class VentanaCrearDirectorio extends JInternalFrame {
         this.buttonList = new ArrayList<JButton>();
         this.comboBox = new JComboBox();
 
-        this.labelList.add(new JLabel("Unidad de Almacenamiento: "));
+        this.labelList.add(new JLabel("Unidad: "));
         this.labelList.add(new JLabel("Nombre del directorio: "));
 
-        this.textList.add(new JTextField(10));
+        this.textList.add(new JTextField(15));
 
-        this.buttonList.add(new JButton("Crear directorio"));
-        this.buttonList.add(new JButton("Actualizar Unidades"));
+        this.buttonList.add(new JButton("Crear"));
+        this.buttonList.add(new JButton("Actualizar"));
         
         for(int i=0;i<this.buttonList.size();i++){
             this.buttonList.get(i).addActionListener(new EventoVentanaCrearDirectorio(this));
@@ -74,8 +74,8 @@ public class VentanaCrearDirectorio extends JInternalFrame {
         this.comboBox.removeAllItems();
         this.units = File.listRoots();
         for (File f : units) {
-            String elemento = FileSystemView.getFileSystemView().getSystemDisplayName(f);//Obtiene el nombre de la unidad
-            if (!elemento.isEmpty()) //No admite elementos vacios
+            String elemento = FileSystemView.getFileSystemView().getSystemDisplayName(f);
+            if (!elemento.isEmpty())
             {
                 this.comboBox.addItem(elemento);
             }

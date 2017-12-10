@@ -30,7 +30,7 @@ public class EventoVentanaCrearDirectorio implements ActionListener {
                 directorio.mkdir();
                 JOptionPane.showMessageDialog(this.ventana,"Directorio creado", "Success", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(this.ventana, "Directorio ya Existente", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.ventana, "Ya existe este directorio", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
         if(e.getSource().equals(this.ventana.getButtonList().get(1))){

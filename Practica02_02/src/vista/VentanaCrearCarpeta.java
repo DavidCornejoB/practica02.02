@@ -40,7 +40,7 @@ public class VentanaCrearCarpeta extends JInternalFrame {
 
     public VentanaCrearCarpeta(String title, boolean resizable, boolean closable, boolean maximizable, boolean iconifiable) {
         super(title, resizable, closable, maximizable, iconifiable);
-        this.setSize(800, 180);
+        this.setSize(450, 170);
         this.setLocation(20, 50);
         this.setVisible(true);
         this.initComponents();
@@ -58,13 +58,13 @@ public class VentanaCrearCarpeta extends JInternalFrame {
         this.labelList.add(new JLabel("Unidad: "));
         this.labelList.add(new JLabel("Directorio: "));
         this.labelList.add(new JLabel("Carpeta: "));
-        this.labelList.add(new JLabel("Nombre"));
+        this.labelList.add(new JLabel("Nombre: "));
 
         this.textList.add(new JTextField(10));
 
-        this.checkList.add(new JCheckBox("Crear aqui"));
+        this.checkList.add(new JCheckBox("Crear aquí"));
         
-        this.buttonList.add(new JButton("Crear carpeta"));
+        this.buttonList.add(new JButton("Añadir carpeta"));
         this.buttonList.add(new JButton("Crear archivo"));
 
         for (int i = 0; i < this.buttonList.size(); i++) {
@@ -105,8 +105,8 @@ public class VentanaCrearCarpeta extends JInternalFrame {
         this.comboBox.removeAllItems();
         this.units = File.listRoots();
         for (File f : units) {
-            String elemento = FileSystemView.getFileSystemView().getSystemDisplayName(f);//Obtiene el nombre de la unidad
-            if (!elemento.isEmpty()) //No admite elementos vacios
+            String elemento = FileSystemView.getFileSystemView().getSystemDisplayName(f);
+            if (!elemento.isEmpty())
             {
                 this.comboBox.addItem(elemento);
             }
@@ -127,7 +127,7 @@ public class VentanaCrearCarpeta extends JInternalFrame {
     public void Mostrar(File a) {
         this.comboBox2.removeAllItems();
         if (a.isFile()) {
-            //System.out.println(a.getPath());
+
         }
 
         if (a.isDirectory()) {
@@ -141,11 +141,11 @@ public class VentanaCrearCarpeta extends JInternalFrame {
 
         for (File a : lista1) {
             if (a.isFile()) {
-                //System.out.println(a.getPath());
+
             }
 
             if (a.isDirectory()) {
-                //System.out.println(a.getPath());
+
                 this.comboBox2.addItem(a.getPath());
                 Metodo2(a.listFiles());
             }
