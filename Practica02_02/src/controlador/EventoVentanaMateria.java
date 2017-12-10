@@ -23,10 +23,9 @@ public class EventoVentanaMateria implements ActionListener {
             
             this.vMateria.getGd().addMateria(new Materia(n,this.vMateria.getGd().getDocenteList().get(c)));
             this.vMateria.getModeloTabla().setDataVector(this.cargaMateria(this.vMateria.getGd().getMateriaList().size(), 3), this.vMateria.getEncabezado());
-            
-            this.vMateria.getComboBox().setSelectedItem(-1);
+
             this.vMateria.getTxtList().get(0).setText("");
-            this.vMateria.getTxtList().get(1).setText("");
+            this.vMateria.getComboBox().setSelectedItem(-1);
             
         }
   
