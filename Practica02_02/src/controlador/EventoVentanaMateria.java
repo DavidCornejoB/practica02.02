@@ -26,6 +26,7 @@ public class EventoVentanaMateria implements ActionListener {
             
             this.vMateria.getComboBox().setSelectedItem(-1);
             this.vMateria.getTxtList().get(0).setText("");
+            this.vMateria.getTxtList().get(1).setText("");
             
         }
   
