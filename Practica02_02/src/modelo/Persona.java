@@ -14,10 +14,10 @@ public class Persona {
 
     private String nombre;
     private String apellido;
-    private String cedula;
+    private int cedula;
     private String fechaNac;
 
-    public Persona(String nombre, String apellido, String cedula, String fechaNac) {
+    public Persona(String nombre, String apellido, int cedula, String fechaNac) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
@@ -40,11 +40,11 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public String getCedula() {
+    public int getCedula() {
         return cedula;
     }
 
-    public void setCedula(String cedula) {
+    public void setCedula(int cedula) {
         this.cedula = cedula;
     }
 

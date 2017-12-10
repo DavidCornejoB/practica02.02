@@ -14,7 +14,7 @@ public class Docente extends Persona {
     
      private String titulo;
 
-    public Docente(String titulo, String nombre, String apellido, String cedula, String fechaNac) {
+    public Docente(String titulo, String nombre, String apellido, int cedula, String fechaNac) {
         super(nombre, apellido, cedula, fechaNac);
         this.titulo = titulo;
     }
@@ -29,7 +29,7 @@ public class Docente extends Persona {
 
     @Override
     public String toString() {
-        return "Docente{" + "titulo=" + titulo + '}';
+        return "Docente{" + "titulo = " + titulo + '}';
     }
      
      
