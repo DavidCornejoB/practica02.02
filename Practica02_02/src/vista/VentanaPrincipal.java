@@ -33,6 +33,8 @@ public class VentanaPrincipal extends JFrame{
     private VentanaCurso vCurso;
     private VentanaDocente vDocente;
     private VentanaMateria vMateria;
+    private VentanaCrearCarpeta vCrearCarpeta;
+    private VentanaCrearDirectorio vCrearDirectorio;
     
     public VentanaPrincipal(String title, GestionDato gd){
         super(title);
@@ -77,6 +79,8 @@ public class VentanaPrincipal extends JFrame{
         this.itemMenuList.get(0).addActionListener(new EventoVentanaPrincipal(this));
         this.itemMenuList.get(1).addActionListener(new EventoVentanaPrincipal(this));
         this.itemMenuList.get(2).addActionListener(new EventoVentanaPrincipal(this));
+        this.itemMenuList.get(3).addActionListener(new EventoVentanaPrincipal(this));
+        this.itemMenuList.get(4).addActionListener(new EventoVentanaPrincipal(this));
         
     }
     
@@ -144,5 +148,23 @@ public class VentanaPrincipal extends JFrame{
     public void setvMateria(VentanaMateria vMateria) {
         this.vMateria = vMateria;
     }
+
+    public VentanaCrearCarpeta getvCrearCarpeta() {
+        return vCrearCarpeta;
+    }
+
+    public void setvCrearCarpeta(VentanaCrearCarpeta vCrearCarpeta) {
+        this.vCrearCarpeta = vCrearCarpeta;
+    }
+
+    public VentanaCrearDirectorio getvCrearDirectorio() {
+        return vCrearDirectorio;
+    }
+
+    public void setvCrearDirectorio(VentanaCrearDirectorio vCrearDirectorio) {
+        this.vCrearDirectorio = vCrearDirectorio;
+    }
+    
+    
 
 }
