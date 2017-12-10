@@ -7,8 +7,11 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JOptionPane;
+import modelo.Curso;
 import modelo.Docente;
+import modelo.Materia;
 import vista.VentanaDocente;
 
 /**
@@ -72,9 +75,8 @@ public class EventoVentanaDocente implements ActionListener {
                         if (cent == true) {
 
                             this.vDocente.getGd().addDocente(new Docente(titulo, n, a, nCedula, fn));
-                            this.vDocente.getGd().persistirArchivoDocente(this.vDocente.getGd().getDocenteList());
                             this.vDocente.getModeloTabla().setDataVector(cargaDocente(this.vDocente.getGd().getDocenteList().size(), 6), this.vDocente.getEncabezado());
-
+                            this.vDocente.getGd().persistirArchivoDocente(this.vDocente.getGd().getDocenteList());
                         }
                     }
                 }

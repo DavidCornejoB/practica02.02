@@ -72,6 +72,8 @@ public class EventoVentanaCrearCarpeta implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(this.ventana, "Archivo Existente", "Error", JOptionPane.INFORMATION_MESSAGE);
             }
+            
+
 
         }
         if (e.getSource().equals(this.ventana.getButtonList().get(1)) && this.ventana.getCheckList().get(0).isSelected()) {
@@ -89,6 +91,8 @@ public class EventoVentanaCrearCarpeta implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(this.ventana, "Archivo Existente", "Error", JOptionPane.ERROR_MESSAGE);
             }
+            
+            System.out.println("b" + archivo);
         }
 
         if (e.getSource().equals(this.ventana.getComboBox())) {

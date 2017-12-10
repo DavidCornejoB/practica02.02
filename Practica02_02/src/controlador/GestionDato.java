@@ -28,6 +28,8 @@ public class GestionDato {
     private List<Materia> materiaList;
     private List<Curso> cursoList;
     private String[] partes;
+    private String directorio;
+
 
     public GestionDato(List<Docente> docenteList, List<Materia> materiaList, List<Curso> cursoList) {
         this.docenteList = docenteList;
@@ -99,10 +101,9 @@ public class GestionDato {
         
         try {
 
-            FileWriter aE = new FileWriter("C:/raiz/archivo1.txt", true);
+            FileWriter aE = new FileWriter("C:/raiz/archivo.txt", true);
             BufferedWriter escritura = new BufferedWriter(aE);
             for (Docente d : this.docenteList) { 
-                //System.out.println("ASGDHGFAGSHDJHSGAFSSGHD");
                 escritura.append(d.getNombre()+" | "+ d.getApellido()+" | "+d.getCedula()+" | "+d.getFechaNac()+" | "+d.getTitulo());
                 escritura.newLine();
                 
