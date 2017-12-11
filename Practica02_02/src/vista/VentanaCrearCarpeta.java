@@ -153,7 +153,6 @@ public class VentanaCrearCarpeta extends JInternalFrame {
 
     public void cargaCombo1() {
         this.comboBox1.removeAllItems();
-
     }
 
     public List<JButton> getButtonList() {
