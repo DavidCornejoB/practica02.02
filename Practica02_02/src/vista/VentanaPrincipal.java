@@ -33,7 +33,6 @@ public class VentanaPrincipal extends JFrame{
     private VentanaCurso vCurso;
     private VentanaDocente vDocente;
     private VentanaMateria vMateria;
-    private VentanaCrearCarpeta vCrearCarpeta;
     private VentanaCrearDirectorio vCrearDirectorio;
     
     public VentanaPrincipal(String title, GestionDato gd){
@@ -147,14 +146,6 @@ public class VentanaPrincipal extends JFrame{
 
     public void setvMateria(VentanaMateria vMateria) {
         this.vMateria = vMateria;
-    }
-
-    public VentanaCrearCarpeta getvCrearCarpeta() {
-        return vCrearCarpeta;
-    }
-
-    public void setvCrearCarpeta(VentanaCrearCarpeta vCrearCarpeta) {
-        this.vCrearCarpeta = vCrearCarpeta;
     }
 
     public VentanaCrearDirectorio getvCrearDirectorio() {
