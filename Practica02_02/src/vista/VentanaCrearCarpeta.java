@@ -40,6 +40,7 @@ public class VentanaCrearCarpeta extends JInternalFrame {
         super(title, resizable, closable, maximizable, iconifiable);
         this.setSize(800, 180);
         this.setLocation(20, 50);
+        this.setVisible(true);
         this.initComponents();
     }
 
