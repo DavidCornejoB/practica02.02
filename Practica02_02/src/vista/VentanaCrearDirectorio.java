@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package vista;
 
@@ -18,13 +13,13 @@ import javax.swing.filechooser.FileSystemView;
 
 public class VentanaCrearDirectorio extends JInternalFrame {
 
-    private List<JTextField> textList;
+    private List<JTextField> txtList;
     private List<JButton> buttonList;
-    private List<JLabel> labelList;
+    private List<JLabel> lblList;
     private File[] units;
     private JComboBox comboBox;
     private Object[] items;
-    private EventoVentanaCrearDirectorio c;
+    private EventoVentanaCrearDirectorio evento;
 
     public VentanaCrearDirectorio(String title, boolean resizable, boolean closable, boolean maximizable, boolean iconifiable) {
         super(title, resizable, closable, maximizable, iconifiable);
@@ -35,15 +30,15 @@ public class VentanaCrearDirectorio extends JInternalFrame {
     }
 
     public void initComponents() {
-        this.textList = new ArrayList<JTextField>();
-        this.labelList = new ArrayList<JLabel>();
+        this.txtList = new ArrayList<JTextField>();
+        this.lblList = new ArrayList<JLabel>();
         this.buttonList = new ArrayList<JButton>();
         this.comboBox = new JComboBox();
 
-        this.labelList.add(new JLabel("Unidad: "));
-        this.labelList.add(new JLabel("Nombre del directorio: "));
+        this.lblList.add(new JLabel("Unidad: "));
+        this.lblList.add(new JLabel("Nombre del directorio: "));
 
-        this.textList.add(new JTextField(15));
+        this.txtList.add(new JTextField(15));
 
         this.buttonList.add(new JButton("Crear"));
         this.buttonList.add(new JButton("Actualizar"));
@@ -57,10 +52,10 @@ public class VentanaCrearDirectorio extends JInternalFrame {
         JPanel panelSur=new JPanel(new FlowLayout());
         this.cargaCombo();
         
-        panelNorte.add(this.labelList.get(0));
+        panelNorte.add(this.lblList.get(0));
         panelNorte.add(this.comboBox);
-        panelNorte.add(this.labelList.get(1));
-        panelNorte.add(this.textList.get(0));
+        panelNorte.add(this.lblList.get(1));
+        panelNorte.add(this.txtList.get(0));
         panelSur.add(this.buttonList.get(0));
         panelSur.add(this.buttonList.get(1));
 
@@ -82,28 +77,12 @@ public class VentanaCrearDirectorio extends JInternalFrame {
         }  
     }
 
-    public List<JTextField> getTextList() {
-        return textList;
-    }
-
-    public void setTextList(List<JTextField> textList) {
-        this.textList = textList;
-    }
-
     public List<JButton> getButtonList() {
         return buttonList;
     }
 
     public void setButtonList(List<JButton> buttonList) {
         this.buttonList = buttonList;
-    }
-
-    public List<JLabel> getLabelList() {
-        return labelList;
-    }
-
-    public void setLabelList(List<JLabel> labelList) {
-        this.labelList = labelList;
     }
 
     public File[] getUnits() {
@@ -130,12 +109,28 @@ public class VentanaCrearDirectorio extends JInternalFrame {
         this.items = items;
     }
 
-    public EventoVentanaCrearDirectorio getC() {
-        return c;
+    public List<JTextField> getTxtList() {
+        return txtList;
     }
 
-    public void setC(EventoVentanaCrearDirectorio c) {
-        this.c = c;
+    public void setTxtList(List<JTextField> txtList) {
+        this.txtList = txtList;
+    }
+
+    public List<JLabel> getLblList() {
+        return lblList;
+    }
+
+    public void setLblList(List<JLabel> lblList) {
+        this.lblList = lblList;
+    }
+
+    public EventoVentanaCrearDirectorio getEvento() {
+        return evento;
+    }
+
+    public void setEvento(EventoVentanaCrearDirectorio evento) {
+        this.evento = evento;
     }
     
 }

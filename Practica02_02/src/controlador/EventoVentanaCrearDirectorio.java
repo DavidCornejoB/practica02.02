@@ -24,7 +24,7 @@ public class EventoVentanaCrearDirectorio implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(this.ventana.getButtonList().get(0))) {
             String unidad = nombreUnidad();//Nombre de la unidad
-            String nombreDir = this.ventana.getTextList().get(0).getText();
+            String nombreDir = this.ventana.getTxtList().get(0).getText();
             File directorio = new File(unidad + ":/" + nombreDir);
             if (!directorio.exists()) {
                 directorio.mkdir();

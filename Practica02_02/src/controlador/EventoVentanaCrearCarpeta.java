@@ -27,7 +27,7 @@ public class EventoVentanaCrearCarpeta implements ActionListener {
             if (this.ventana.getComboBox2().getItemCount() != 0) {
 
                 String direc = cambiarDir1();
-                File directorio = new File(direc + "/" + this.ventana.getTextList().get(0).getText());
+                File directorio = new File(direc + "/" + this.ventana.getTxtList().get(0).getText());
                 if (!directorio.exists()) {
                     directorio.mkdir();
                     JOptionPane.showMessageDialog(this.ventana, "Carpeta creada", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -36,7 +36,7 @@ public class EventoVentanaCrearCarpeta implements ActionListener {
                 }
             } else {
                 String direc = cambiarDir();
-                File directorio = new File(direc + "/" + this.ventana.getTextList().get(0).getText());
+                File directorio = new File(direc + "/" + this.ventana.getTxtList().get(0).getText());
                 if (!directorio.exists()) {
                     directorio.mkdir();
                     JOptionPane.showMessageDialog(this.ventana, "Carpeta creada", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -49,7 +49,7 @@ public class EventoVentanaCrearCarpeta implements ActionListener {
 
         if (e.getSource().equals(this.ventana.getButtonList().get(0)) && this.ventana.getCheckList().get(0).isSelected()) {
             String direc = cambiarDir();
-            File directorio = new File(direc + "/" + this.ventana.getTextList().get(0).getText());
+            File directorio = new File(direc + "/" + this.ventana.getTxtList().get(0).getText());
             if (!directorio.exists()) {
                 directorio.mkdir();
                 JOptionPane.showMessageDialog(this.ventana, "Carpeta creada", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -59,7 +59,7 @@ public class EventoVentanaCrearCarpeta implements ActionListener {
         }
 
         if (e.getSource().equals(this.ventana.getButtonList().get(1)) && !this.ventana.getCheckList().get(0).isSelected()) {
-            String nombArchivo = this.ventana.getTextList().get(0).getText();
+            String nombArchivo = this.ventana.getTxtList().get(0).getText();
             String direc = cambiarDir1();
             File archivo = new File(direc + "/" + nombArchivo);
             if (!archivo.exists()) {
@@ -75,7 +75,7 @@ public class EventoVentanaCrearCarpeta implements ActionListener {
 
         }
         if (e.getSource().equals(this.ventana.getButtonList().get(1)) && this.ventana.getCheckList().get(0).isSelected()) {
-            String nombArchivo = this.ventana.getTextList().get(0).getText();
+            String nombArchivo = this.ventana.getTxtList().get(0).getText();
             String direc = cambiarDir();
             File archivo = new File(direc + "/" + nombArchivo);
 

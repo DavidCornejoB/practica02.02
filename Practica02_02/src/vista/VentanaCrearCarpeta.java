@@ -14,29 +14,27 @@ import java.awt.GridLayout;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileSystemView;
 
 public class VentanaCrearCarpeta extends JInternalFrame {
 
-    private List<JTextField> textList;
+    private List<JTextField> txtList;
     private List<JButton> buttonList;
-    private List<JLabel> labelList;
+    private List<JLabel> lblList;
     private File[] units;
     private JComboBox comboBox;
     private JComboBox comboBox1;
     private JComboBox comboBox2;
     private List<JCheckBox> checkList;
     private Object[] items;
-    private EventoVentanaCrearDirectorio c;
+    private EventoVentanaCrearDirectorio evento;
 
     public VentanaCrearCarpeta(String title, boolean resizable, boolean closable, boolean maximizable, boolean iconifiable) {
         super(title, resizable, closable, maximizable, iconifiable);
@@ -46,20 +44,20 @@ public class VentanaCrearCarpeta extends JInternalFrame {
     }
 
     public void initComponents() {
-        this.textList = new ArrayList<JTextField>();
-        this.labelList = new ArrayList<JLabel>();
+        this.txtList = new ArrayList<JTextField>();
+        this.lblList = new ArrayList<JLabel>();
         this.buttonList = new ArrayList<JButton>();
         this.comboBox = new JComboBox();
         this.comboBox1 = new JComboBox();
         this.comboBox2 = new JComboBox();
         this.checkList = new ArrayList<JCheckBox>();
 
-        this.labelList.add(new JLabel("Unidad: "));
-        this.labelList.add(new JLabel("Directorio: "));
-        this.labelList.add(new JLabel("Carpeta: "));
-        this.labelList.add(new JLabel("Nombre"));
+        this.lblList.add(new JLabel("Unidad: "));
+        this.lblList.add(new JLabel("Directorio: "));
+        this.lblList.add(new JLabel("Carpeta: "));
+        this.lblList.add(new JLabel("Nombre"));
 
-        this.textList.add(new JTextField(10));
+        this.txtList.add(new JTextField(10));
 
         this.checkList.add(new JCheckBox("Crear aqui"));
         
@@ -80,17 +78,17 @@ public class VentanaCrearCarpeta extends JInternalFrame {
         JPanel panelSur = new JPanel(new FlowLayout());
         this.cargaCombo();
 
-        panelNorte.add(this.labelList.get(0));
+        panelNorte.add(this.lblList.get(0));
         panelNorte.add(this.comboBox);
         panelNorte.add(new JLabel());
-        panelNorte.add(this.labelList.get(1));
+        panelNorte.add(this.lblList.get(1));
         panelNorte.add(this.comboBox1);
         panelNorte.add(this.checkList.get(0));
-        panelNorte.add(this.labelList.get(2));
+        panelNorte.add(this.lblList.get(2));
         panelNorte.add(this.comboBox2);
         panelNorte.add(new JLabel());
-        panelNorte.add(this.labelList.get(3));
-        panelNorte.add(this.textList.get(0));
+        panelNorte.add(this.lblList.get(3));
+        panelNorte.add(this.txtList.get(0));
         panelSur.add(this.buttonList.get(0));
         panelSur.add(this.buttonList.get(1));
 
@@ -157,14 +155,6 @@ public class VentanaCrearCarpeta extends JInternalFrame {
 
     }
 
-    public List<JTextField> getTextList() {
-        return textList;
-    }
-
-    public void setTextList(List<JTextField> textList) {
-        this.textList = textList;
-    }
-
     public List<JButton> getButtonList() {
         return buttonList;
     }
@@ -172,15 +162,7 @@ public class VentanaCrearCarpeta extends JInternalFrame {
     public void setButtonList(List<JButton> buttonList) {
         this.buttonList = buttonList;
     }
-
-    public List<JLabel> getLabelList() {
-        return labelList;
-    }
-
-    public void setLabelList(List<JLabel> labelList) {
-        this.labelList = labelList;
-    }
-
+    
     public File[] getUnits() {
         return units;
     }
@@ -203,14 +185,6 @@ public class VentanaCrearCarpeta extends JInternalFrame {
 
     public void setItems(Object[] items) {
         this.items = items;
-    }
-
-    public EventoVentanaCrearDirectorio getC() {
-        return c;
-    }
-
-    public void setC(EventoVentanaCrearDirectorio c) {
-        this.c = c;
     }
 
     public JComboBox getComboBox1() {
@@ -237,4 +211,28 @@ public class VentanaCrearCarpeta extends JInternalFrame {
         this.checkList = checkList;
     }
 
+    public List<JTextField> getTxtList() {
+        return txtList;
+    }
+
+    public void setTxtList(List<JTextField> txtList) {
+        this.txtList = txtList;
+    }
+
+    public List<JLabel> getLblList() {
+        return lblList;
+    }
+
+    public void setLblList(List<JLabel> lblList) {
+        this.lblList = lblList;
+    }
+
+    public EventoVentanaCrearDirectorio getEvento() {
+        return evento;
+    }
+
+    public void setEvento(EventoVentanaCrearDirectorio evento) {
+        this.evento = evento;
+    }
+    
 }
