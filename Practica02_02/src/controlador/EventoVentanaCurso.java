@@ -24,6 +24,7 @@ public class EventoVentanaCurso implements ActionListener {
                 String grupo = this.vCurso.getTxtList().get(0).getText();
                 String varAlumnos = this.vCurso.getTxtList().get(1).getText();
                 int comboMateria = this.vCurso.getComboBox().getSelectedIndex();
+                Object combo = this.vCurso.getComboBox().getSelectedItem();
 
                 if (grupo.isEmpty() && varAlumnos.isEmpty()) {
                     JOptionPane.showMessageDialog(vCurso, "Todos los parámetros está vacíos", "Empty Parameter", JOptionPane.NO_OPTION);
@@ -38,7 +39,7 @@ public class EventoVentanaCurso implements ActionListener {
                     int a = 0;
                     boolean cent = true;
                     for (Curso c : this.vCurso.getGd().getCursoList()) {
-                        if (grupo.compareTo(this.vCurso.getGd().getCursoList().get(a).getParalelo()) == 0) {
+                        if (combo.equals(this.vCurso.getGd().getMateriaList().get(a).getNombre())) {
                             JOptionPane.showMessageDialog(vCurso, "Ya se encuentra este dato en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
                             cent = false;
                             break;

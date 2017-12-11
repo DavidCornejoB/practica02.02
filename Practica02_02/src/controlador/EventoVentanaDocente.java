@@ -62,7 +62,7 @@ public class EventoVentanaDocente implements ActionListener {
                         boolean cent = true;
                         for (Docente d : this.vDocente.getGd().getDocenteList()) {
                             //DOS PERSONAS NO PUEDEN TENER LA MISMA CEDULA
-                            if (cedula.compareTo(Integer.toString(this.vDocente.getGd().getDocenteList().get(cont).getCedula())) == 0) {
+                            if (cedula.equalsIgnoreCase(Integer.toString(this.vDocente.getGd().getDocenteList().get(cont).getCedula()))) {
                                 JOptionPane.showMessageDialog(vDocente, "Ya se encuentra esta persona(cedula: " + cedula + ") en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
                                 cent = false;
                                 break;

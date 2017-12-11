@@ -18,18 +18,20 @@ public class EventoVentanaMateria implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(this.vMateria.getbGuardar())) {
+            
+            try{
 
             String n = this.vMateria.getTxtList().get(0).getText();
             int c = this.vMateria.getComboBox().getSelectedIndex();
 
             if (n.isEmpty()) {
-                JOptionPane.showMessageDialog(vMateria, "", "", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(vMateria, "El parámetro Nombre se encuentra vacío", "EmptyParameter", JOptionPane.INFORMATION_MESSAGE);
             } else {
 
                 int cont = 0;
                 boolean cent = true;
                 for (Materia m : this.vMateria.getGd().getMateriaList()) {
-                    if (n.compareTo(this.vMateria.getGd().getMateriaList().get(cont).getNombre()) == 0) {
+                    if (n.equalsIgnoreCase(this.vMateria.getGd().getMateriaList().get(cont).getNombre())) {
                         JOptionPane.showMessageDialog(vMateria, "Ya se encuentra esta materia en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
                         cent = false;
                         break;
@@ -44,12 +46,15 @@ public class EventoVentanaMateria implements ActionListener {
                     this.vMateria.getModeloTabla().setDataVector(this.cargaMateria(this.vMateria.getGd().getMateriaList().size(), 3), this.vMateria.getEncabezado());
                 }
             }
+            }catch(ArrayIndexOutOfBoundsException err){
+                JOptionPane.showInternalMessageDialog(vMateria, "El parámetro docente está vacío. Ingrese un docente en la ventana Nuevo Docente", "EmptyParameter", JOptionPane.ERROR_MESSAGE);
+            }
             this.vMateria.getTxtList().get(0).setText("");
             this.vMateria.getComboBox().setSelectedItem(-1);
 
         }
     }
-    
+
     private Object[][] cargaMateria(int f, int c) {
 
         Object[][] retorno = new Object[f][c];
