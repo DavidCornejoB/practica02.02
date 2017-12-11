@@ -25,14 +25,14 @@ public class EventoVentanaMateria implements ActionListener {
             int c = this.vMateria.getComboBox().getSelectedIndex();
 
             if (n.isEmpty()) {
-                JOptionPane.showMessageDialog(vMateria, "El parámetro Nombre se encuentra vacío", "EmptyParameter", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showInternalMessageDialog(vMateria, "El parámetro Nombre se encuentra vacío", "EmptyParameter", JOptionPane.INFORMATION_MESSAGE);
             } else {
 
                 int cont = 0;
                 boolean cent = true;
                 for (Materia m : this.vMateria.getGd().getMateriaList()) {
                     if (n.equalsIgnoreCase(this.vMateria.getGd().getMateriaList().get(cont).getNombre())) {
-                        JOptionPane.showMessageDialog(vMateria, "Ya se encuentra esta materia en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showInternalMessageDialog(vMateria, "Ya se encuentra esta materia en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
                         cent = false;
                         break;
                     } else {
@@ -47,7 +47,7 @@ public class EventoVentanaMateria implements ActionListener {
                 }
             }
             }catch(ArrayIndexOutOfBoundsException err){
-                JOptionPane.showInternalMessageDialog(vMateria, "El parámetro docente está vacío. Ingrese un docente en la ventana Nuevo Docente", "EmptyParameter", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showInternalMessageDialog(vMateria, "El parámetro docente está vacío. Ingrese un docente desde la ventana Nuevo Docente", "EmptyParameter", JOptionPane.ERROR_MESSAGE);
             }
             this.vMateria.getTxtList().get(0).setText("");
             this.vMateria.getComboBox().setSelectedItem(-1);

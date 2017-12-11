@@ -39,21 +39,21 @@ public class EventoVentanaDocente implements ActionListener {
                 String titulo = this.vDocente.getTxtList().get(4).getText();
 
                 if (n.isEmpty() && a.isEmpty() && cedula.isEmpty() && fn.isEmpty() && titulo.isEmpty()) {
-                    JOptionPane.showMessageDialog(vDocente, "Todos los parámetros están vacíos", "EmptyParameter", JOptionPane.NO_OPTION);
+                    JOptionPane.showInternalMessageDialog(vDocente, "Todos los parámetros están vacíos", "EmptyParameter", JOptionPane.NO_OPTION);
                 } else if (n.isEmpty()) {
-                    JOptionPane.showMessageDialog(vDocente, "El parámetro Nombre está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
+                    JOptionPane.showInternalMessageDialog(vDocente, "El parámetro Nombre está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
                 } else if (a.isEmpty()) {
-                    JOptionPane.showMessageDialog(vDocente, "El parámetro Apellido está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
+                    JOptionPane.showInternalMessageDialog(vDocente, "El parámetro Apellido está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
                 } else if (cedula.isEmpty()) {
-                    JOptionPane.showMessageDialog(vDocente, "El parámetro Cedula está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
+                    JOptionPane.showInternalMessageDialog(vDocente, "El parámetro Cedula está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
                 } else if (fn.isEmpty()) {
-                    JOptionPane.showMessageDialog(vDocente, "El parámetro Fecha Nacimiento está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
+                    JOptionPane.showInternalMessageDialog(vDocente, "El parámetro Fecha Nacimiento está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
                 } else if (titulo.isEmpty()) {
-                    JOptionPane.showMessageDialog(vDocente, "El parámetro Titulo está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
+                    JOptionPane.showInternalMessageDialog(vDocente, "El parámetro Titulo está vacío", "EmptyParameter", JOptionPane.NO_OPTION);
                 } else {
 
                     if (cedula.length() != 10) {
-                        JOptionPane.showMessageDialog(vDocente, "La cedula debe tener 10 dígitos", "Error Cédula", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showInternalMessageDialog(vDocente, "La cedula debe tener 10 dígitos", "Error Cédula", JOptionPane.ERROR_MESSAGE);
                     } else {
 
                         int nCedula = Integer.parseInt(cedula);
@@ -63,7 +63,7 @@ public class EventoVentanaDocente implements ActionListener {
                         for (Docente d : this.vDocente.getGd().getDocenteList()) {
                             //DOS PERSONAS NO PUEDEN TENER LA MISMA CEDULA
                             if (cedula.equalsIgnoreCase(Integer.toString(this.vDocente.getGd().getDocenteList().get(cont).getCedula()))) {
-                                JOptionPane.showMessageDialog(vDocente, "Ya se encuentra esta persona(cedula: " + cedula + ") en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showInternalMessageDialog(vDocente, "Ya se encuentra esta persona(cedula: " + cedula + ") en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
                                 cent = false;
                                 break;
                             } else {
@@ -82,7 +82,7 @@ public class EventoVentanaDocente implements ActionListener {
                 }
 
             } catch (NumberFormatException error) {
-                JOptionPane.showMessageDialog(vDocente, "Ingresar sólo numeros en el parámetro Cédula", "NumberFormatException", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showInternalMessageDialog(vDocente, "Ingresar sólo numeros en el parámetro Cédula", "NumberFormatException", JOptionPane.ERROR_MESSAGE);
             }
             this.vDocente.getTxtList().get(0).setText("");
             this.vDocente.getTxtList().get(1).setText("");

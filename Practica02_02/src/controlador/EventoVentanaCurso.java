@@ -19,7 +19,7 @@ public class EventoVentanaCurso implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource().equals(this.vCurso.getbGuardar())) {
-
+try{
             try {
                 String grupo = this.vCurso.getTxtList().get(0).getText();
                 String varAlumnos = this.vCurso.getTxtList().get(1).getText();
@@ -27,11 +27,11 @@ public class EventoVentanaCurso implements ActionListener {
                 Object combo = this.vCurso.getComboBox().getSelectedItem();
 
                 if (grupo.isEmpty() && varAlumnos.isEmpty()) {
-                    JOptionPane.showMessageDialog(vCurso, "Todos los parámetros está vacíos", "Empty Parameter", JOptionPane.NO_OPTION);
+                    JOptionPane.showInternalMessageDialog(vCurso, "Todos los parámetros está vacíos", "Empty Parameter", JOptionPane.NO_OPTION);
                 } else if (grupo.isEmpty()) {
-                    JOptionPane.showMessageDialog(vCurso, "El parámetro Grupo esrá vacío", "Empty Parameter", JOptionPane.NO_OPTION);
+                    JOptionPane.showInternalMessageDialog(vCurso, "El parámetro Grupo esrá vacío", "Empty Parameter", JOptionPane.NO_OPTION);
                 } else if (varAlumnos.isEmpty()) {
-                    JOptionPane.showMessageDialog(vCurso, "El parámetro Numero Alumnos está vacío", "Empty Parameter", JOptionPane.NO_OPTION);
+                    JOptionPane.showInternalMessageDialog(vCurso, "El parámetro Numero Alumnos está vacío", "Empty Parameter", JOptionPane.NO_OPTION);
                 } else {//INICIO ELSE
 
                     int numAlumnos = Integer.parseInt(varAlumnos);
@@ -40,7 +40,7 @@ public class EventoVentanaCurso implements ActionListener {
                     boolean cent = true;
                     for (Curso c : this.vCurso.getGd().getCursoList()) {
                         if (combo.equals(this.vCurso.getGd().getMateriaList().get(a).getNombre())) {
-                            JOptionPane.showMessageDialog(vCurso, "Ya se encuentra este dato en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showInternalMessageDialog(vCurso, "Ya se encuentra este dato en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
                             cent = false;
                             break;
                         } else {
@@ -57,9 +57,14 @@ public class EventoVentanaCurso implements ActionListener {
 
             } catch (NumberFormatException error) {
 
-                JOptionPane.showMessageDialog(vCurso, "Ingresar solo números en el parámetro Numero Alumnos", "NumberFormatException", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showInternalMessageDialog(vCurso, "Ingresar solo números en el parámetro Numero Alumnos", "NumberFormatException", JOptionPane.ERROR_MESSAGE);
 
             }
+} catch(ArrayIndexOutOfBoundsException error){
+    
+                    JOptionPane.showInternalMessageDialog(vCurso, "El parámetro Materia está vacío. Ingrese una materia desde la ventana Nueva Materia", "ArrayIndexOutOfBoundsException", JOptionPane.ERROR_MESSAGE);
+
+}
 
             this.vCurso.getTxtList().get(0).setText("");
             this.vCurso.getTxtList().get(1).setText("");
