@@ -90,7 +90,7 @@ public class EventoVentanaDocente implements ActionListener {
         }
         
         if(e.getSource().equals(this.vDocente.getbGenerar())){
-            
+            JOptionPane.showMessageDialog(null, "Se debe escribir con la direccion del disco ejemplo: c:/Usuario");
             this.vDocente.getGd().persistirArchivoDocente(this.vDocente.getGd().getDocenteList());
             
         }

@@ -54,7 +54,7 @@ public class EventoVentanaMateria implements ActionListener {
         }
 
         if (e.getSource().equals(this.vMateria.getbGenerar())) {
-
+            JOptionPane.showMessageDialog(null, "Se debe escribir con la direccion del disco ejemplo: c:/Usuario");
             this.vMateria.getGd().persistirArchivoMateria(this.vMateria.getGd().getMateriaList());
 
         }

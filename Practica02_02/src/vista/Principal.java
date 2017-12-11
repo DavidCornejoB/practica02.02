@@ -31,9 +31,13 @@ public class Principal {
         
         //docenteList.add(new Docente("juan","hkljh","jjjj",01023934123,"mmmm"));
         GestionDato gd = new GestionDato(docenteList, materiaList, cursoList);
+        List<Docente> hola = gd.getDocenteList();
         
         VentanaPrincipal v = new VentanaPrincipal("Menu Principal",gd);
         v.setVisible(true);
+        
+        
+        
         
         
     }
