@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import java.awt.HeadlessException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -31,7 +32,6 @@ public class GestionDato {
     private VentanaPrincipal vPrincipal;
     private String[] partes;
     private String directorio;
-
 
     public GestionDato(List<Docente> docenteList, List<Materia> materiaList, List<Curso> cursoList) {
         this.docenteList = docenteList;
@@ -101,25 +101,25 @@ public class GestionDato {
 
     public boolean persistirArchivoDocente(List<Docente> lista) {
 
-        JOptionPane.showMessageDialog(this.vPrincipal, "Se ha generado un archivo DatosDocente en: C:/raiz/", "Directorio", JOptionPane.PLAIN_MESSAGE);
-        try {
+        String directorio = JOptionPane.showInputDialog(vPrincipal, "Ingresar el directorio donde se guardará el archivo DatosDocente");
+        this.directorio = directorio;
 
-            FileWriter aE = new FileWriter("C:/raiz/DatosDocente.txt", true);
+        try {
+            JOptionPane.showMessageDialog(this.vPrincipal, "Se ha generado un archivo DatosDocente en: " + directorio, "Directorio", JOptionPane.PLAIN_MESSAGE);
+            FileWriter aE = new FileWriter(this.directorio + "/DatosDocente.txt", true);
             BufferedWriter escritura = new BufferedWriter(aE);
-            for (Docente d : this.docenteList) { 
-                escritura.append(d.getNombre()+" | "+ d.getApellido()+" | "+d.getCedula()+" | "+d.getFechaNac()+" | "+d.getTitulo());
+            for (Docente d : this.docenteList) {
+                escritura.append(d.getNombre() + " | " + d.getApellido() + " | " + d.getCedula() + " | " + d.getFechaNac() + " | " + d.getTitulo());
                 escritura.newLine();
-                
+
             }
-            
+
             escritura.close();
             return true;
         } catch (IOException e1) {
-            System.out.println("El Archivo NO Existe");
+            JOptionPane.showMessageDialog(this.vPrincipal, "El Directorio especificado NO Existe", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
     }
-    
-
 
 }

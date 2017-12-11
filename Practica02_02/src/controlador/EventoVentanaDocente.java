@@ -73,7 +73,7 @@ public class EventoVentanaDocente implements ActionListener {
 
                             this.vDocente.getGd().addDocente(new Docente(titulo, n, a, nCedula, fn));
                             this.vDocente.getModeloTabla().setDataVector(cargaDocente(this.vDocente.getGd().getDocenteList().size(), 6), this.vDocente.getEncabezado());
-                            this.vDocente.getGd().persistirArchivoDocente(this.vDocente.getGd().getDocenteList());
+                            
                         }
                     }
                 }
@@ -87,6 +87,12 @@ public class EventoVentanaDocente implements ActionListener {
             this.vDocente.getTxtList().get(3).setText("");
             this.vDocente.getTxtList().get(4).setText("");
 
+        }
+        
+        if(e.getSource().equals(this.vDocente.getbGenerar())){
+            
+            this.vDocente.getGd().persistirArchivoDocente(this.vDocente.getGd().getDocenteList());
+            
         }
     }
 

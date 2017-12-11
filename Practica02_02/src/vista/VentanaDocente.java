@@ -9,6 +9,7 @@ package vista;
 import controlador.EventoVentanaDocente;
 import controlador.GestionDato;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class VentanaDocente extends JInternalFrame{
     private List<JLabel> lblList;
     private List<JTextField> txtList;
     private JButton bGuardar;
+    private JButton bGenerar;
     private DefaultTableModel modeloTabla;
     private JTable tabla;
     private JScrollPane scroll;
@@ -49,8 +51,9 @@ public class VentanaDocente extends JInternalFrame{
 
     public void iniciaComponentes() {
         
-        this.panel = new JPanel(new BorderLayout(3,1));
+        this.panel = new JPanel(new BorderLayout(3,2));
         JPanel panelCampos = new JPanel(new GridLayout(5,2));
+        JPanel pBotones = new JPanel(new BorderLayout(0,0));
         
         this.lblList = new ArrayList();
         this.lblList.add(new JLabel("Nombre:"));
@@ -68,6 +71,11 @@ public class VentanaDocente extends JInternalFrame{
         
         this.bGuardar = new JButton("Guardar");
         this.bGuardar.addActionListener(new EventoVentanaDocente(this));
+        
+        this.bGenerar = new JButton("Generar Archivo");
+        this.bGenerar.setBackground(Color.CYAN);
+        this.bGenerar.addActionListener(new EventoVentanaDocente(this));
+        
         this.encabezado = new Object[6];
         this.encabezado[0]="N°";
         this.encabezado[1]="Nombre";
@@ -95,7 +103,9 @@ public class VentanaDocente extends JInternalFrame{
         
         
         this.panel.add(panelCampos, BorderLayout.NORTH);
-        this.panel.add(this.bGuardar, BorderLayout.SOUTH);
+        this.panel.add(pBotones, BorderLayout.SOUTH);
+        pBotones.add(this.bGuardar, BorderLayout.WEST);
+        pBotones.add(this.bGenerar, BorderLayout.EAST);
         this.panel.add(this.scroll);
         this.add(this.panel);
 
@@ -195,5 +205,15 @@ public class VentanaDocente extends JInternalFrame{
     public void setGd(GestionDato gd) {
         this.gd = gd;
     }
+
+    public JButton getbGenerar() {
+        return bGenerar;
+    }
+
+    public void setbGenerar(JButton bGenerar) {
+        this.bGenerar = bGenerar;
+    }
+    
+    
 
 }

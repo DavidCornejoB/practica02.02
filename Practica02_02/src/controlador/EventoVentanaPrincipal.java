@@ -8,7 +8,6 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import vista.VentanaCrearDirectorio;
 import vista.VentanaCurso;
 import vista.VentanaDocente;
 import vista.VentanaMateria;
@@ -21,6 +20,7 @@ import vista.VentanaPrincipal;
 public class EventoVentanaPrincipal implements ActionListener {
 
     private VentanaPrincipal vPrincipal;
+    private GestionDato gD;
 
     public EventoVentanaPrincipal(VentanaPrincipal vPrincipal) {
         this.vPrincipal = vPrincipal;
@@ -40,11 +40,6 @@ public class EventoVentanaPrincipal implements ActionListener {
         if (e.getSource().equals(this.vPrincipal.getItemMenuList().get(1))) {
             this.vPrincipal.setvMateria(new VentanaMateria("Nueva Materia", true, true, true, true, this.vPrincipal.getGd()));
             this.vPrincipal.getEscritorio().add(this.vPrincipal.getvMateria());
-        }
-        if (e.getSource().equals(this.vPrincipal.getItemMenuList().get(3))) {
-            JOptionPane.showMessageDialog(vPrincipal, "Espacio para crear el directorio en donde se creará el archivo", "Info", JOptionPane.INFORMATION_MESSAGE);
-            this.vPrincipal.setvCrearDirectorio(new VentanaCrearDirectorio("CrearDirectorio", true, true, true, true));
-            this.vPrincipal.getEscritorio().add(this.vPrincipal.getvCrearDirectorio());
         }
 
 
