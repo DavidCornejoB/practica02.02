@@ -116,28 +116,7 @@ public class GestionDato {
             return false;
         }
     }
+    
 
-    public List<Docente> leerDocente() {
-        try {
-            FileReader fr = new FileReader("C:/raiz/archivo.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String linea = br.readLine();
-
-            while (linea != null) {
-                partes = linea.split(" | ");
-                String parte1 = partes[0];
-                String parte3 = partes[2];
-                String parte4 = partes[3];
-                String parte6 = partes[5];
-
-                System.out.println(parte1);
-
-            }
-            br.close();
-
-        } catch (IOException ae) {
-        }
-        return this.docenteList;
-    }
 
 }

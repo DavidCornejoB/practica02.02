@@ -65,7 +65,7 @@ public class EventoVentanaDocente implements ActionListener {
                                 break;
                             } else {
                                 cent = true;
-                            }
+                           }
                             cont++;
                         }
 
