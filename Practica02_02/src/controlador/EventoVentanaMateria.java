@@ -3,13 +3,12 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import modelo.Docente;
 import modelo.Materia;
 import vista.VentanaMateria;
 
 public class EventoVentanaMateria implements ActionListener {
 
-    private VentanaMateria vMateria;
+    private final VentanaMateria vMateria;
 
     public EventoVentanaMateria(VentanaMateria vMateria) {
         this.vMateria = vMateria;

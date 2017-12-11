@@ -4,12 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import modelo.Curso;
-import modelo.Materia;
 import vista.VentanaCurso;
 
 public class EventoVentanaCurso implements ActionListener {
 
-    private VentanaCurso vCurso;
+    private final VentanaCurso vCurso;
 
     public EventoVentanaCurso(VentanaCurso vCurso) {
         this.vCurso = vCurso;

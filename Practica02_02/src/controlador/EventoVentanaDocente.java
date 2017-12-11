@@ -7,11 +7,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import javax.swing.JOptionPane;
-import modelo.Curso;
 import modelo.Docente;
-import modelo.Materia;
 import vista.VentanaDocente;
 
 /**
@@ -20,7 +17,7 @@ import vista.VentanaDocente;
  */
 public class EventoVentanaDocente implements ActionListener {
 
-    private VentanaDocente vDocente;
+    private final VentanaDocente vDocente;
 
     public EventoVentanaDocente(VentanaDocente vDocente) {
         this.vDocente = vDocente;
