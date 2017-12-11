@@ -17,39 +17,45 @@ public class EventoVentanaMateria implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(this.vMateria.getbGuardar())) {
-            
-            try{
 
-            String n = this.vMateria.getTxtList().get(0).getText();
-            int c = this.vMateria.getComboBox().getSelectedIndex();
+            try {
 
-            if (n.isEmpty()) {
-                JOptionPane.showInternalMessageDialog(vMateria, "El parámetro Nombre se encuentra vacío", "EmptyParameter", JOptionPane.INFORMATION_MESSAGE);
-            } else {
+                String n = this.vMateria.getTxtList().get(0).getText();
+                int c = this.vMateria.getComboBox().getSelectedIndex();
 
-                int cont = 0;
-                boolean cent = true;
-                for (Materia m : this.vMateria.getGd().getMateriaList()) {
-                    if (n.equalsIgnoreCase(this.vMateria.getGd().getMateriaList().get(cont).getNombre())) {
-                        JOptionPane.showInternalMessageDialog(vMateria, "Ya se encuentra esta materia en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
-                        cent = false;
-                        break;
-                    } else {
-                        cent = true;
+                if (n.isEmpty()) {
+                    JOptionPane.showInternalMessageDialog(vMateria, "El parámetro Nombre se encuentra vacío", "EmptyParameter", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+
+                    int cont = 0;
+                    boolean cent = true;
+                    for (Materia m : this.vMateria.getGd().getMateriaList()) {
+                        if (n.equalsIgnoreCase(this.vMateria.getGd().getMateriaList().get(cont).getNombre())) {
+                            JOptionPane.showInternalMessageDialog(vMateria, "Ya se encuentra esta materia en nuestra base de datos", "Parámetro Repetido", JOptionPane.ERROR_MESSAGE);
+                            cent = false;
+                            break;
+                        } else {
+                            cent = true;
+                        }
+                        cont++;
                     }
-                    cont++;
-                }
 
-                if (cent == true) {
-                    this.vMateria.getGd().addMateria(new Materia(n, this.vMateria.getGd().getDocenteList().get(c)));
-                    this.vMateria.getModeloTabla().setDataVector(this.cargaMateria(this.vMateria.getGd().getMateriaList().size(), 3), this.vMateria.getEncabezado());
+                    if (cent == true) {
+                        this.vMateria.getGd().addMateria(new Materia(n, this.vMateria.getGd().getDocenteList().get(c)));
+                        this.vMateria.getModeloTabla().setDataVector(this.cargaMateria(this.vMateria.getGd().getMateriaList().size(), 3), this.vMateria.getEncabezado());
+                    }
                 }
-            }
-            }catch(ArrayIndexOutOfBoundsException err){
+            } catch (ArrayIndexOutOfBoundsException err) {
                 JOptionPane.showInternalMessageDialog(vMateria, "El parámetro docente está vacío. Ingrese un docente desde la ventana Nuevo Docente", "EmptyParameter", JOptionPane.ERROR_MESSAGE);
             }
             this.vMateria.getTxtList().get(0).setText("");
             this.vMateria.getComboBox().setSelectedItem(-1);
+
+        }
+
+        if (e.getSource().equals(this.vMateria.getbGenerar())) {
+
+            this.vMateria.getGd().persistirArchivoMateria(this.vMateria.getGd().getMateriaList());
 
         }
     }

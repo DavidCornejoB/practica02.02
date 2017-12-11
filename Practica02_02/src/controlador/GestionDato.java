@@ -121,5 +121,28 @@ public class GestionDato {
             return false;
         }
     }
+    
+        public boolean persistirArchivoMateria(List<Materia> lista) {
+
+        String directorio = JOptionPane.showInputDialog(vPrincipal, "Ingresar el directorio donde se guardará el archivo DatosMateria");
+        this.directorio = directorio;
+
+        try {
+            JOptionPane.showMessageDialog(this.vPrincipal, "Se ha generado un archivo DatosDocente en: " + directorio, "Directorio", JOptionPane.PLAIN_MESSAGE);
+            FileWriter aE = new FileWriter(this.directorio + "/DatosMateria.txt", true);
+            BufferedWriter escritura = new BufferedWriter(aE);
+            for (Materia m : this.materiaList) {
+                escritura.append(m.getNombre() + " | Docente: " + m.getDocente().getNombre() + " " + m.getDocente().getApellido());
+                escritura.newLine();
+
+            }
+
+            escritura.close();
+            return true;
+        } catch (IOException e1) {
+            JOptionPane.showMessageDialog(this.vPrincipal, "El Directorio especificado NO Existe", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
 
 }
