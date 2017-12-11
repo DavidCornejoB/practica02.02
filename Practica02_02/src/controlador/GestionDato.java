@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import modelo.Curso;
 import modelo.Docente;
 import modelo.Materia;
+import vista.VentanaPrincipal;
 
 /**
  *
@@ -27,6 +28,7 @@ public class GestionDato {
     private List<Docente> docenteList;
     private List<Materia> materiaList;
     private List<Curso> cursoList;
+    private VentanaPrincipal vPrincipal;
     private String[] partes;
     private String directorio;
 
@@ -98,10 +100,11 @@ public class GestionDato {
     }
 
     public boolean persistirArchivoDocente(List<Docente> lista) {
-        
+
+        JOptionPane.showMessageDialog(this.vPrincipal, "Se ha generado un archivo DatosDocente en: C:/raiz/", "Directorio", JOptionPane.PLAIN_MESSAGE);
         try {
 
-            FileWriter aE = new FileWriter("C:/raiz/archivo.txt", true);
+            FileWriter aE = new FileWriter("C:/raiz/DatosDocente.txt", true);
             BufferedWriter escritura = new BufferedWriter(aE);
             for (Docente d : this.docenteList) { 
                 escritura.append(d.getNombre()+" | "+ d.getApellido()+" | "+d.getCedula()+" | "+d.getFechaNac()+" | "+d.getTitulo());
