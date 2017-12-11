@@ -7,6 +7,7 @@ package vista;
 
 import controlador.EventoVentanaMateria;
 import controlador.GestionDato;
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,8 +51,8 @@ public class VentanaMateria extends JInternalFrame {
     }
 
     public void iniciaComponentes() {
-        this.panel = new JPanel(new GridLayout(3,2 ));
-        JPanel panelCampos = new JPanel(new GridLayout(3, 2));
+        this.panel = new JPanel(new BorderLayout(3, 2));
+        JPanel panelCampos = new JPanel(new GridLayout(2, 2));
 
         this.lblList = new ArrayList();
         this.lblList.add(new JLabel("Nombre:"));
@@ -81,8 +82,8 @@ public class VentanaMateria extends JInternalFrame {
         panelCampos.add(this.lblList.get(1));
         panelCampos.add(this.comboBox);
         
-        this.panel.add(panelCampos);
-        this.panel.add(this.bGuardar);
+        this.panel.add(panelCampos, BorderLayout.NORTH);
+        this.panel.add(this.bGuardar, BorderLayout.SOUTH);
         this.panel.add(this.scroll);
         this.add(this.panel);
     }   

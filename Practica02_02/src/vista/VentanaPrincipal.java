@@ -59,8 +59,8 @@ public class VentanaPrincipal extends JFrame{
         this.itemMenuList.add(new JMenuItem("Nuevo Docente"));
         this.itemMenuList.add(new JMenuItem("Nueva Materia"));
         this.itemMenuList.add(new JMenuItem("Nuevo Curso"));
-        this.itemMenuList.add(new JMenuItem("Crear Carpeta"));
-        this.itemMenuList.add(new JMenuItem("Crear Documento"));
+        this.itemMenuList.add(new JMenuItem("Crear Directorio"));
+        this.itemMenuList.add(new JMenuItem("Crear Archivo de texto"));
  
         this.add(this.escritorio);
         this.setJMenuBar(this.barraMenu);
