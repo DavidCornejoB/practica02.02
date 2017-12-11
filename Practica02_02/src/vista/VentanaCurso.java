@@ -9,6 +9,7 @@ import controlador.EventoVentanaCurso;
 import controlador.EventoVentanaMateria;
 import controlador.GestionDato;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class VentanaCurso extends JInternalFrame {
     private JPanel panel;
     private List<JLabel> lblList;
     private List<JTextField> txtList;
-    private JButton bGuardar;
+    private JButton bGuardar, bGenerar;
     private DefaultTableModel modeloTabla;
     private JScrollPane scroll;
     private JTable tabla;
@@ -52,6 +53,7 @@ public class VentanaCurso extends JInternalFrame {
 
     public void iniciaComponentes() {
         this.panel = new JPanel(new BorderLayout(3, 2));
+        JPanel pBotones = new JPanel(new BorderLayout());
         JPanel panelCampos = new JPanel(new GridLayout(3, 2));
 
         this.lblList = new ArrayList();
@@ -64,10 +66,14 @@ public class VentanaCurso extends JInternalFrame {
         this.txtList.add(new JTextField(15));
 
         this.bGuardar = new JButton("Guardar");
+        this.bGenerar = new JButton("Generar Archivo");
+        this.bGenerar.setBackground(Color.cyan);
 
         this.comboBox = new JComboBox(this.CargaCombo());
 
         this.bGuardar.addActionListener(new EventoVentanaCurso(this));
+        this.bGenerar.addActionListener(new EventoVentanaCurso(this));
+        
         this.encabezado = new Object[4];
         this.encabezado[0] = "N°";
         this.encabezado[1] = "Grupo";
@@ -88,7 +94,9 @@ public class VentanaCurso extends JInternalFrame {
         panelCampos.add(this.comboBox);
 
         this.panel.add(panelCampos, BorderLayout.NORTH);
-        this.panel.add(this.bGuardar, BorderLayout.SOUTH);
+        this.panel.add(pBotones, BorderLayout.SOUTH);
+        pBotones.add(this.bGuardar, BorderLayout.WEST);
+        pBotones.add(this.bGenerar, BorderLayout.EAST);
         this.panel.add(this.scroll);
         this.add(this.panel);
 
@@ -206,6 +214,14 @@ public class VentanaCurso extends JInternalFrame {
 
     public void setGd(GestionDato gd) {
         this.gd = gd;
+    }
+
+    public JButton getbGenerar() {
+        return bGenerar;
+    }
+
+    public void setbGenerar(JButton bGenerar) {
+        this.bGenerar = bGenerar;
     }
 
 }
