@@ -43,7 +43,7 @@ public class EventoVentanaPrincipal implements ActionListener {
         }
         if (e.getSource().equals(this.vPrincipal.getItemMenuList().get(3))) {
             System.out.println("hoa");
-            JOptionPane.showMessageDialog(vPrincipal, "Por: David Cornejo, Pablo Malla, Gabriela Fajardo, Jhonnatan Matute", "Programado por", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(vPrincipal, "Por: David Cornejo, Pablo Malla, Gabriela Fajardo, Jonnathan Matute", "Programado por", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }
