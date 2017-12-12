@@ -5,12 +5,7 @@
  */
 package controlador;
 
-import java.awt.HeadlessException;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -30,7 +25,6 @@ public class GestionDato {
     private List<Materia> materiaList;
     private List<Curso> cursoList;
     private VentanaPrincipal vPrincipal;
-    private String[] partes;
     private String directorio;
 
     public GestionDato(List<Docente> docenteList, List<Materia> materiaList, List<Curso> cursoList) {
@@ -100,72 +94,86 @@ public class GestionDato {
     }
 
     public boolean persistirArchivoDocente(List<Docente> lista) {
-
-        String directorio = JOptionPane.showInputDialog(vPrincipal, "Ingresar el directorio donde se guardará el archivo DatosDocente");
+        boolean retorno = false;
+        String directorio = JOptionPane.showInputDialog(this.vPrincipal, "Ingresar el directorio donde se guardará el archivo DatosDocente", "C:/");
         this.directorio = directorio;
 
         try {
-            JOptionPane.showMessageDialog(this.vPrincipal, "Se ha generado un archivo DatosDocente en: " + directorio, "Directorio", JOptionPane.PLAIN_MESSAGE);
             FileWriter aE = new FileWriter(this.directorio + "/DatosDocente.txt", true);
             BufferedWriter escritura = new BufferedWriter(aE);
             for (Docente d : this.docenteList) {
-                escritura.append(d.getNombre() + " | " + d.getApellido() + " | " + d.getCedula() + " | " + d.getFechaNac() + " | " + d.getTitulo());
+                escritura.append("NOMBRE Y APELLIDO: " + d.getNombre() + " " + d.getApellido() + " | CÉDULA: " + d.getCedula() + " | FECHA NACIMIENTO: " + d.getFechaNac() + " | TITULO: " + d.getTitulo());
                 escritura.newLine();
 
             }
-
             escritura.close();
-            return true;
+            retorno = true;
         } catch (IOException e1) {
             JOptionPane.showMessageDialog(this.vPrincipal, "El Directorio especificado NO Existe", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
+            retorno = false;
         }
+        if (retorno == true) {
+            JOptionPane.showMessageDialog(this.vPrincipal, "Se ha generado un archivo DatosDocente en: " + directorio, "Directorio", JOptionPane.PLAIN_MESSAGE);
+        }
+
+        return retorno;
     }
 
     public boolean persistirArchivoMateria(List<Materia> lista) {
-
-        String directorio = JOptionPane.showInputDialog(vPrincipal, "Ingresar el directorio donde se guardará el archivo DatosMateria");
+        boolean retorno = false;
+        String directorio = JOptionPane.showInputDialog(this.vPrincipal, "Ingresar el directorio donde se guardará el archivo DatosMateria", "C:/");
         this.directorio = directorio;
 
         try {
-            JOptionPane.showMessageDialog(this.vPrincipal, "Se ha generado un archivo DatosMateria en: " + directorio, "Directorio", JOptionPane.PLAIN_MESSAGE);
             FileWriter aE = new FileWriter(this.directorio + "/DatosMateria.txt", true);
             BufferedWriter escritura = new BufferedWriter(aE);
             for (Materia m : this.materiaList) {
-                escritura.append(m.getNombre() + " | DOCENTE: " + m.getDocente().getNombre() + " " + m.getDocente().getApellido());
+                escritura.append("NOMBRE: " + m.getNombre() + " | DOCENTE: " + m.getDocente().getNombre() + " " + m.getDocente().getApellido());
                 escritura.newLine();
 
             }
 
             escritura.close();
-            return true;
+            retorno = true;
         } catch (IOException e1) {
             JOptionPane.showMessageDialog(this.vPrincipal, "El Directorio especificado NO Existe", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
+            retorno = false;
         }
+
+        if (retorno == true) {
+            JOptionPane.showMessageDialog(this.vPrincipal, "Se ha generado un archivo DatosMateria en: " + directorio, "Directorio", JOptionPane.PLAIN_MESSAGE);
+        }
+
+        return retorno;
     }
 
     public boolean persistirArchivoCurso(List<Curso> lista) {
-
-        String directorio = JOptionPane.showInputDialog(vPrincipal, "Ingresar el directorio donde se guardará el archivo DatosCurso");
+        boolean retorno = false;
+        String directorio = JOptionPane.showInputDialog(vPrincipal, "Ingresar el directorio donde se guardará el archivo DatosCurso", "C:/");
         this.directorio = directorio;
 
         try {
-            JOptionPane.showMessageDialog(this.vPrincipal, "Se ha generado un archivo DatosCurso en: " + directorio, "Directorio", JOptionPane.PLAIN_MESSAGE);
             FileWriter aE = new FileWriter(this.directorio + "/DatosCurso.txt", true);
             BufferedWriter escritura = new BufferedWriter(aE);
             for (Curso c : this.cursoList) {
-                escritura.append(c.getParalelo() + " | " + c.getNumAlumnos() + " | MATERIA: " + c.getMateria().getNombre());
+                escritura.append("PARALELO: " + c.getParalelo() + " | NUMERO DE ALUMNOS: " + c.getNumAlumnos() + " | MATERIA: " + c.getMateria().getNombre());
                 escritura.newLine();
 
             }
 
             escritura.close();
-            return true;
+            retorno = true;
         } catch (IOException e1) {
             JOptionPane.showMessageDialog(this.vPrincipal, "El Directorio especificado NO Existe", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
+            retorno = false;
         }
+
+        if (retorno == true) {
+            JOptionPane.showMessageDialog(this.vPrincipal, "Se ha generado un archivo DatosCurso en: " + directorio, "Directorio", JOptionPane.PLAIN_MESSAGE);
+
+        }
+
+        return retorno;
     }
 
 }

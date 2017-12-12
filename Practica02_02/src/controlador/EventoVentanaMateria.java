@@ -54,7 +54,7 @@ public class EventoVentanaMateria implements ActionListener {
         }
 
         if (e.getSource().equals(this.vMateria.getbGenerar())) {
-            JOptionPane.showMessageDialog(null, "Se debe escribir con la direccion del disco ejemplo: c:/Usuario");
+            JOptionPane.showInternalMessageDialog(vMateria, "Se debe escribir una direccion existente en disco local, ejemplo: C:/Windows", "Ojo!", JOptionPane.INFORMATION_MESSAGE);
             this.vMateria.getGd().persistirArchivoMateria(this.vMateria.getGd().getMateriaList());
 
         }

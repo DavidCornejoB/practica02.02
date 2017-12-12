@@ -34,6 +34,8 @@ public class EventoVentanaDocente implements ActionListener {
                 String cedula = this.vDocente.getTxtList().get(2).getText();
                 String fn = this.vDocente.getTxtList().get(3).getText();
                 String titulo = this.vDocente.getTxtList().get(4).getText();
+                
+                System.out.println("fff" + cedula.length());
 
                 if (n.isEmpty() && a.isEmpty() && cedula.isEmpty() && fn.isEmpty() && titulo.isEmpty()) {
                     JOptionPane.showInternalMessageDialog(vDocente, "Todos los parámetros están vacíos", "EmptyParameter", JOptionPane.NO_OPTION);
@@ -90,7 +92,7 @@ public class EventoVentanaDocente implements ActionListener {
         }
         
         if(e.getSource().equals(this.vDocente.getbGenerar())){
-            JOptionPane.showMessageDialog(null, "Se debe escribir con la direccion del disco ejemplo: c:/Usuario");
+            JOptionPane.showInternalMessageDialog(vDocente, "Se debe escribir una direccion existente en disco local, ejemplo: C:/Windows", "Ojo!" , JOptionPane.INFORMATION_MESSAGE);
             this.vDocente.getGd().persistirArchivoDocente(this.vDocente.getGd().getDocenteList());
             
         }

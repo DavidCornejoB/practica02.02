@@ -30,8 +30,6 @@ public class Curso {
         this.materia = materia;
     }
 
-    
-
     public String getParalelo() {
         return grupo;
     }

@@ -8,6 +8,7 @@ package vista;
 
 import controlador.EventoVentanaPrincipal;
 import controlador.GestionDato;
+import java.awt.Color;
 
 import java.awt.HeadlessException;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class VentanaPrincipal extends JFrame{
     public VentanaPrincipal(String title, GestionDato gd){
         super(title);
         this.setSize(820, 720);
+        this.setLocationRelativeTo(this);
         this.setDefaultCloseOperation(3);
         this.gd = gd;
         this.iniciaComponentes();
@@ -46,17 +48,21 @@ public class VentanaPrincipal extends JFrame{
     public void iniciaComponentes(){
         
         this.escritorio = new JDesktopPane();
+        this.escritorio.setBackground(Color.GRAY);
         this.barraMenu = new JMenuBar();
         
         this.menuList = new ArrayList();
         this.menuList.add(new JMenu("Docente"));
         this.menuList.add(new JMenu("Materia"));
         this.menuList.add(new JMenu("Curso"));
+        this.menuList.add(new JMenu("                                                                                                                                                                                                  "));
+        this.menuList.add(new JMenu("Información"));
         
         this.itemMenuList = new ArrayList();
         this.itemMenuList.add(new JMenuItem("Nuevo Docente"));
         this.itemMenuList.add(new JMenuItem("Nueva Materia"));
         this.itemMenuList.add(new JMenuItem("Nuevo Curso"));
+        this.itemMenuList.add(new JMenuItem("Autores"));
  
         
         this.add(this.escritorio);
@@ -65,16 +71,20 @@ public class VentanaPrincipal extends JFrame{
         this.barraMenu.add(this.menuList.get(0));
         this.barraMenu.add(this.menuList.get(1));
         this.barraMenu.add(this.menuList.get(2));
+        this.barraMenu.add(this.menuList.get(3));
+        this.barraMenu.add(this.menuList.get(4));
         
         
         this.menuList.get(0).add(this.itemMenuList.get(0));
         this.menuList.get(1).add(this.itemMenuList.get(1));
         this.menuList.get(2).add(this.itemMenuList.get(2));
+        this.menuList.get(4).add(this.itemMenuList.get(3));
         
         
         this.itemMenuList.get(0).addActionListener(new EventoVentanaPrincipal(this));
         this.itemMenuList.get(1).addActionListener(new EventoVentanaPrincipal(this));
         this.itemMenuList.get(2).addActionListener(new EventoVentanaPrincipal(this));
+        this.itemMenuList.get(3).addActionListener(new EventoVentanaPrincipal(this));
        
         
     }

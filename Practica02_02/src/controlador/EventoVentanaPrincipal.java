@@ -15,7 +15,7 @@ import vista.VentanaPrincipal;
 
 /**
  *
- * @author Administrador
+ * @author David Cornejo
  */
 public class EventoVentanaPrincipal implements ActionListener {
 
@@ -41,8 +41,9 @@ public class EventoVentanaPrincipal implements ActionListener {
             this.vPrincipal.setvMateria(new VentanaMateria("Nueva Materia", true, true, true, true, this.vPrincipal.getGd()));
             this.vPrincipal.getEscritorio().add(this.vPrincipal.getvMateria());
         }
-
-
+        if (e.getSource().equals(this.vPrincipal.getItemMenuList().get(3))) {
+            System.out.println("hoa");
+            JOptionPane.showMessageDialog(vPrincipal, "Por: David Cornejo, Pablo Malla, Gabriela Fajardo, Jhonnatan Matute", "Programado por", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
-
 }

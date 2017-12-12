@@ -72,7 +72,7 @@ public class EventoVentanaCurso implements ActionListener {
         }
 
         if (e.getSource().equals(this.vCurso.getbGenerar())) {
-            JOptionPane.showMessageDialog(null, "Se debe escribir con la direccion del disco ejemplo: c:/Usuario");
+            JOptionPane.showInternalMessageDialog(vCurso, "Se debe escribir una direccion existente en disco local, ejemplo: C:/Windows", "Ojo!" , JOptionPane.INFORMATION_MESSAGE);
             this.vCurso.getGd().persistirArchivoCurso(this.vCurso.getGd().getCursoList());
         }
 
